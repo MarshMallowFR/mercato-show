@@ -4,14 +4,6 @@ let token = '';
 
 export const getToken = async (): Promise<string> => {
   const url = 'https://api.twitter.com/oauth2/token';
-  console.log(
-    'Basic ' +
-      btoa(
-        import.meta.env.VITE_APP_API_TWITTER_KEY +
-          ':' +
-          import.meta.env.VITE_APP_API_TWITTER_SECRET,
-      ),
-  );
   const data = await axios(url, {
     method: 'POST',
     headers: {
