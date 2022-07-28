@@ -1,0 +1,99 @@
+@font-face {
+  font-family: 'OpenSans-Regular';
+  src: local("open-sans'"),
+    url('../fonts/OpenSans-Regular.ttf') format('truetype');
+}
+
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  3. Allow percentage-based heights in the application
+*/
+html,
+body {
+  height: 100%;
+}
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  background-color: $dark-color;
+  font-family: twitterchirp-regular;
+}
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  font-family: 'open-sans', 'helvetica';
+}
+
+/*
+  9. Avoid ul styles
+*/
+ul {
+  list-style: none;
+}
+
+/*
+  10. Remove button style
+*/
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  outline: inherit;
+}
+
+/*
+  11. Remove anchor style
+*/
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
