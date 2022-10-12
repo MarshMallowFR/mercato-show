@@ -1,0 +1,86 @@
+{
+  "result": {
+    "data": [
+      {
+        "author_id": "330262748",
+        "text": "RT @FabrizioRomano: Exclusive: Chelsea are closing in on the agreement with Southampton to appoint Joe Shields as new Director of Recruitme…",
+        "edit_history_tweet_ids": [
+          "1580252273959395328"
+        ],
+        "id": "1580252273959395328"
+      },
+      {
+        "author_id": "330262748",
+        "text": "RT @guardian_sport: Chelsea are close to taking Joe Shields from Southampton as their new head of recruitment, reports @FabrizioRomano http…",
+        "edit_history_tweet_ids": [
+          "1580252246457331712"
+        ],
+        "id": "1580252246457331712"
+      },
+      {
+        "author_id": "330262748",
+        "text": "@J_Tanswell thanks mate!",
+        "edit_history_tweet_ids": [
+          "1580252214467395585"
+        ],
+        "id": "1580252214467395585"
+      },
+      {
+        "attachments": {
+          "media_keys": [
+            "3_1580232326482731008"
+          ]
+        },
+        "author_id": "330262748",
+        "text": "More on Joe Shields, expected to join Chelsea in the next months 🔵 #CFC\n\n▫️ Romeo Lavia, one of his signings at Southampton — Chelsea had £50m rejected for him;\n\n▫️ Bella-Kotchap, also rated as top talent;\n\n▫️ Juan Larios, Sam Edozie and huge work on top talents. https://t.co/nApKIDYnVU",
+        "edit_history_tweet_ids": [
+          "1580232333730664448"
+        ],
+        "id": "1580232333730664448"
+      },
+      {
+        "attachments": {
+          "media_keys": [
+            "3_1580231687350505472"
+          ]
+        },
+        "author_id": "330262748",
+        "text": "Exclusive: Chelsea are closing in on the agreement with Southampton to appoint Joe Shields as new Director of Recruitment. 🚨🔵 #CFC\n\nHuge statement by club owners as Shields is highly rated after his top work with Southampton and Man City, discovering many talents. https://t.co/VV2TCd1zDn",
+        "edit_history_tweet_ids": [
+          "1580231695042609153"
+        ],
+        "id": "1580231695042609153"
+      }
+    ],
+    "includes": {
+      "users": [
+        {
+          "name": "Fabrizio Romano",
+          "id": "330262748",
+          "username": "FabrizioRomano",
+          "profile_image_url": "https://pbs.twimg.com/profile_images/1486761402853380113/3ifAqala_normal.jpg"
+        }
+      ],
+      "media": [
+        {
+          "media_key": "3_1580232326482731008",
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/Fe4c7bKXoAAGqQw.jpg",
+          "height": 409
+        },
+        {
+          "media_key": "3_1580231687350505472",
+          "type": "photo",
+          "url": "https://pbs.twimg.com/media/Fe4cWONX0AAOxdJ.jpg",
+          "height": 744
+        }
+      ]
+    },
+    "meta": {
+      "next_token": "7140dibdnow9c7btw423wsc6jyjb3urft9vqscr7ydk4z",
+      "result_count": 5,
+      "newest_id": "1580252273959395328",
+      "oldest_id": "1580231695042609153"
+    }
+  }
+}
