@@ -6,6 +6,7 @@ export const api = async (
 ): Promise<AxiosResponse> => {
   return axios(url, {
     headers: {
+      'Content-Type': 'application/json;charset=utf-8',
       'Access-Control-Allow-Origin': '*',
     },
     ...options,
