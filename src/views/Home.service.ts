@@ -34,7 +34,7 @@ export const useTweets = () => {
   api(`${import.meta.env.VITE_APP_API_BASE_URL}/users/330262748/tweets`)
     .then((result: AxiosResponse<TweeterResponse>) => {
       console.log({ result });
-      return formatTweets(result);
+      return formatTweets(result.data);
     })
     .catch((err) => new Error(err));
 };
