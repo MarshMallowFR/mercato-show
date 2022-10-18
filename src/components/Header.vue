@@ -1,9 +1,6 @@
 <template>
   <header>
     <h1 id="header-title" data-testid="header-title">Mercato Show</h1>
-    <p id="header-description" data-testid="header-description">
-      Last twitter news on the mercato
-    </p>
   </header>
 </template>
 

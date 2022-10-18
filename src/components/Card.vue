@@ -1,45 +1,57 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { FormattedTweet } from '../views/Home.type';
+import { formatDate } from '../utils/tools';
+
+defineProps<{
+  tweet: FormattedTweet;
+}>();
+</script>
 
 <template>
   <section class="card-wrapper">
     <img
       class="card-avatar"
-      src="https://pbs.twimg.com/profile_images/1486761402853380113/3ifAqala_normal.jpg"
       alt="avatar"
       data-testid="card-avatar"
+      :src="tweet.author.profile_image_url"
     />
     <div class="card-content">
       <div class="card-header">
-        <h2 class="card-header-name" data-testid="card-name">
-          Fabrizio Romano
+        <h2
+          class="card-header-name"
+          data-testid="card-name"
+          :title="tweet.author.name"
+        >
+          {{ tweet.author.name }}
         </h2>
         <image
-          src="src/assets/images/verified.svg"
+          v-if="tweet.author.verified"
+          src="../assets/icons/verified.png"
           class="card-header-icon"
           data-testid="card-verif"
           alt="verified icon"
         />
-        <h2 class="card-header-alias" data-testid="card-alias">
-          @FabrizioRomano
+        <h2
+          class="card-header-alias"
+          data-testid="card-alias"
+          :title="tweet.author.username"
+        >
+          @{{ tweet.author.username }}
         </h2>
-        <p class="card-header-time" data-testid="card-time">· 27 juil.</p>
+        <p class="card-header-time" data-testid="card-time">
+          · {{ formatDate(tweet.created_at) }}
+        </p>
       </div>
       <a data-testid="card-link-tweet" href="https://t.co/7oNXcnHa66">
-        <p
-          class="card-text"
-          data-testid="card-text"
-          v-html="
-            `Barcelona have received indications from Jules Koundé’s camp in the
-          last hours: the player would be prepared to accept personal terms
-          proposal. Xavi, also called him. 🚨🇫🇷 #FCB\n\nChelsea discussed personal
-          terms with Koundé days ago, but still no green light from
-          Sevilla/player.`
-          "
-        ></p>
+        <p class="card-text" data-testid="card-text">{{ tweet.text }}</p>
         <img
+          v-if="tweet.url"
           class="card-image"
-          src="https://pbs.twimg.com/media/FYc-2bbXgAAk0r1.jpg"
+          :src="tweet.url"
           alt="soccer player"
+          :style="{
+            height: tweet.height,
+          }"
         />
       </a>
     </div>

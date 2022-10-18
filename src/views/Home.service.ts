@@ -1,8 +1,15 @@
 import { AxiosResponse } from 'axios';
 import { api } from '../utils/api';
-import { MediaDetails, TweetAuthor, Tweet, TweeterResponse } from './Home.type';
+import { sortDate } from '../utils/tools';
+import {
+  MediaDetails,
+  TweetAuthor,
+  Tweet,
+  TweeterResponse,
+  FormattedTweet,
+} from './Home.type';
 
-const formatTweets = (twitterData: TweeterResponse) => {
+const formatTweets = (twitterData: TweeterResponse): FormattedTweet[] => {
   const {
     media: medias,
     users,
@@ -11,7 +18,7 @@ const formatTweets = (twitterData: TweeterResponse) => {
   return twitterData.result.data.map((tweet: Tweet) => {
     const author = users.find(
       (user: TweetAuthor) => user.id === tweet.author_id,
-    );
+    ) as TweetAuthor;
     let mediaDetails = <MediaDetails>{};
     if (tweet.attachments?.media_keys) {
       const media = medias.find(
@@ -30,11 +37,15 @@ const formatTweets = (twitterData: TweeterResponse) => {
   });
 };
 
-export const useTweets = () => {
-  api(`${import.meta.env.VITE_APP_API_BASE_URL}/users/330262748/tweets`)
+export const useTweets = async (): Promise<FormattedTweet[]> => {
+  return api(`${import.meta.env.VITE_APP_API_BASE_URL}/users/tweets`)
     .then((result: AxiosResponse<TweeterResponse>) => {
-      console.log({ result });
-      return formatTweets(result.data);
+      console.log(formatTweets(result.data));
+      return formatTweets(result.data).sort(
+        (tweetA: FormattedTweet, tweetB: FormattedTweet) => {
+          return sortDate(tweetA.created_at, tweetB.created_at);
+        },
+      );
     })
-    .catch((err) => new Error(err));
+    .catch(() => []);
 };

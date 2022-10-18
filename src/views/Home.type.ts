@@ -3,6 +3,7 @@ export interface Tweet {
   text: string;
   edit_history_tweet_ids: string[];
   id: string;
+  created_at: string;
   attachments?: {
     media_keys: string[];
   };
@@ -20,6 +21,7 @@ export interface TweetAuthor {
   id: string;
   username: string;
   profile_image_url: string;
+  verified: boolean;
 }
 
 export interface TweeterResponse {
@@ -31,3 +33,8 @@ export interface TweeterResponse {
     };
   };
 }
+
+export type FormattedTweet = {
+  author: TweetAuthor;
+} & MediaDetails &
+  Tweet;
