@@ -7,10 +7,8 @@ import Loading from '../components/Loading.vue';
 
 const tweets = ref<FormattedTweet[]>([]);
 
-onMounted(() => {
-  setTimeout(async () => {
-    tweets.value = await useTweets();
-  }, 1000);
+onMounted(async () => {
+  tweets.value = await useTweets();
 });
 
 const displayTweets: ComputedRef<FormattedTweet[]> = computed(() => {
@@ -19,11 +17,6 @@ const displayTweets: ComputedRef<FormattedTweet[]> = computed(() => {
 </script>
 
 <template>
-  <Card
-    v-if="displayTweets.length > 0"
-    v-for="tweet in tweets"
-    :tweet="tweet"
-    :key="tweet.id"
-  />
-  <Loading v-else />
+  <Loading v-if="displayTweets.length === 0" />
+  <Card v-else v-for="tweet in tweets" :tweet="tweet" :key="tweet.id" />
 </template>

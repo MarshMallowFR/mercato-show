@@ -12,7 +12,6 @@ export const sortDate = (dateA: string, dateB: string): number => {
 
 export const formatDate = (date: string): string => {
   return new Date(date).toLocaleDateString('en-us', {
-    // year: 'numeric',
     month: 'short',
     day: 'numeric',
   });

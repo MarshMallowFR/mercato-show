@@ -2,6 +2,22 @@
 import { FormattedTweet } from '../views/Home.type';
 import { formatDate } from '../utils/tools';
 
+const regex = /(?:https?|ftp):\/\/[\n\S]+/g;
+const getLink = (text: string): string => {
+  const url = text.match(regex);
+  if (url) {
+    return url[0];
+  }
+  return '';
+};
+const getText = (text: string): string => {
+  const truncatedText = text.replace(regex, '');
+  if (truncatedText) {
+    return truncatedText;
+  }
+  return '';
+};
+
 defineProps<{
   tweet: FormattedTweet;
 }>();
@@ -42,8 +58,10 @@ defineProps<{
           · {{ formatDate(tweet.created_at) }}
         </p>
       </div>
-      <a data-testid="card-link-tweet" href="https://t.co/7oNXcnHa66">
-        <p class="card-text" data-testid="card-text">{{ tweet.text }}</p>
+      <a data-testid="card-link-tweet" :href="getLink(tweet.text)">
+        <p class="card-text" data-testid="card-text">
+          {{ getText(tweet.text) }}
+        </p>
         <img
           v-if="tweet.url"
           class="card-image"
@@ -100,11 +118,37 @@ defineProps<{
         margin-right: 4px;
       }
     }
-    .card-text {
-    }
+
     .card-image {
       border-radius: 16px;
       margin-top: 16px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .card-wrapper {
+    .card-content {
+      * {
+        font-size: 16px;
+      }
+      .card-header {
+        &-name,
+        &-alias {
+          width: unset;
+        }
+      }
+    }
+  }
+}
+@media (min-width: 1024px) {
+  .card-wrapper {
+    width: 50%;
+    margin: auto;
+    .card-content {
+      * {
+        font-size: 19px;
+      }
     }
   }
 }

@@ -19,10 +19,10 @@
     position: absolute;
     width: 40px;
     height: 40px;
-    animation: square 1s infinite ease-in;
+    animation: bounce 1s infinite ease-in;
   }
 }
-@keyframes square {
+@keyframes bounce {
   0% {
     transform: translate(-50%, 0);
   }

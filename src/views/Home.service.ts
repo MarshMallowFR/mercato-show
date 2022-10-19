@@ -40,7 +40,6 @@ const formatTweets = (twitterData: TweeterResponse): FormattedTweet[] => {
 export const useTweets = async (): Promise<FormattedTweet[]> => {
   return api(`${import.meta.env.VITE_APP_API_BASE_URL}/users/tweets`)
     .then((result: AxiosResponse<TweeterResponse>) => {
-      console.log(formatTweets(result.data));
       return formatTweets(result.data).sort(
         (tweetA: FormattedTweet, tweetB: FormattedTweet) => {
           return sortDate(tweetA.created_at, tweetB.created_at);
